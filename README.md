@@ -28,7 +28,7 @@ int main(){
         }
         auto m = a.get_possible_moves(); // getting vector of possible moves ,std::vector <checkers::Move>, 
         for (auto& c : m) { //printing moves
-            std::cout << '[' << c.from_x << ' ' << c.from_y << ' ' << c.to_x << ' ' << c.to_y << "], \n";  // all information they are contain
+            std::cout << '[' << c.from_x << ' ' << c.from_y << ' ' << c.to_x << ' ' << c.to_y << "], \n";  // all information which moves contains
         }
         std::cout << a.check_end_game('w') << ' ' << a.check_end_game('b'); /* check end of game, gets 'w'|'b' to check conditions for specific player, without arguments returns states for player now. enum End_game{
         none //anyone do not win
