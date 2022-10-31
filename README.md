@@ -30,7 +30,7 @@ int main(){
         for (auto& c : m) { //printing moves
             std::cout << '[' << c.from_x << ' ' << c.from_y << ' ' << c.to_x << ' ' << c.to_y << "], \n";  // all information which moves contains
         }
-        std::cout << a.check_end_game('w') << '\n'; /* check end of game, returns states for player now. 
+        std::cout << a.check_end_game() << '\n'; /* check end of game, returns states for player now. 
         enum End_game{
         none //anyone do not win
         ,win
