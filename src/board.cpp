@@ -300,15 +300,8 @@ std::vector<checkers::Move> checkers::Board::get_eat_moves_by_pos(const std::arr
     return moves;
 }
 
-checkers::End_game checkers::Board::check_end_game(char who) {
-    bool change = false;
-    if (!(who == '.' || who== 'w' || who == 'b')){
-        throw std::invalid_argument( "incorrect text move format: '"+std::string(1,who) + "'. Expected input: '.' or 'w' or 'b'" );
-    }
-    if (who == '.'){
-        who = this->get_turn();
-        change = true;
-    }
+checkers::End_game checkers::Board::check_end_game() {
+    char who = this->get_turn();
     int total_count = this->king_w +this->king_b +this->usual_b + this->usual_w;
     if (this->moves_only_by_king >= 30 ||
             (this->king_b && this->king_w &&
@@ -330,9 +323,6 @@ checkers::End_game checkers::Board::check_end_game(char who) {
        return draw_same_positions;
    }
 
-
-
-
     if (this->get_turn() != who){
         this->is_black = !this->is_black;
         this->update_possible_moves();
@@ -342,16 +332,11 @@ checkers::End_game checkers::Board::check_end_game(char who) {
         return lose;
     }
 
-    this->is_black = !is_black;
-    this->update_possible_moves();
     if (!this->possible_moves.size()){
         return win;
     }
 
-    if (change){
-        this->is_black = !is_black;
-        this->update_possible_moves();
-    }
+    return none;
 
 
 

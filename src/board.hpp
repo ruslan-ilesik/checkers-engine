@@ -61,7 +61,7 @@ namespace checkers{
 
             std::vector<Move> get_possible_moves();
             std::array<std::array<char,8>,8> get_board();
-            enum End_game check_end_game(char who='.');
+            enum End_game check_end_game();
             void make_turn(const checkers::Move& move);
 
 
