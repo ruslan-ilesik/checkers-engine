@@ -43,6 +43,6 @@ checkers::Move::Move(const std::string &uci) {
 }
 
 std::string checkers::Move::to_uci() {
-    return  std::string(1,this->convert[this->from_x]) + std::to_string(this->from_y+1)
-    + std::string (1,this->convert[this->to_x]) + std::to_string(this->to_y+1);
+    return  std::string(1,this->convert[this->from_x+1]) + std::to_string(this->from_y+1)
+    + std::string (1,this->convert[this->to_x+1]) + std::to_string(this->to_y+1);
 }
